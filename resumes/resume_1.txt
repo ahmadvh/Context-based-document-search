@@ -1,0 +1,32 @@
+
+    Name: Alex Johnson
+    Role: Software Engineer
+
+    Summary:
+    Passionate Software Engineer with a strong background in full-stack development 
+    and experience in various programming languages and frameworks. Skilled in both 
+    frontend and backend development, with a knack for problem-solving and attention 
+    to detail.
+
+    Technical Skills:
+    - GCP, SQL, Flask, Docker, Azure, Angular
+
+    Soft Skills:
+    - Empathy, Collaboration, Adaptability, Critical Thinking
+
+    Experience:
+    - Developed and maintained web applications, improving performance by up to 30%.
+    - Collaborated with cross-functional teams to design and implement software solutions.
+    - Conducted code reviews and provided mentorship to junior developers.
+    - Implemented CI/CD pipelines, reducing deployment time by 50%.
+
+    Education:
+    - B.Sc. in Computer Science, Example University, 2019
+
+    Projects:
+    - Built an e-commerce platform with Python and Django, handling over 10,000 users.
+    - Created a machine learning model to predict customer behavior with 85% accuracy.
+
+    References:
+    Available upon request.
+    

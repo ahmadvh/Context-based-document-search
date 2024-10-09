@@ -6,3 +6,4 @@ python-dotenv
 pypdf
 scipy
 langchain_ollama
+pandas
