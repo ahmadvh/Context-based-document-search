@@ -1,0 +1,30 @@
+# Environment Files
+.env
+
+# Python Cache Files
+__pycache__/
+*.py[cod]
+
+# Virtual Environment
+venv/
+.venv/
+
+# Compiled Files
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.pyc
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Logs and System Files
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE Specific Files
+.vscode/
+.idea/
