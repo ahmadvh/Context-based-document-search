@@ -7,3 +7,4 @@ pypdf
 scipy
 langchain_ollama
 pandas
+langchain_chroma

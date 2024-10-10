@@ -1,39 +1,30 @@
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from dotenv import load_dotenv
-from langchain_core.prompts import PromptTemplate     
-from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
-import os
-import pandas as pd
+from Utils.vector_db_handler import VectorDBHandler
 
 # Load environment variables
 load_dotenv()
 
-# Define a directory of .txt files that we want to perform a context-based search on
+# Define the directory paths and collection name
 files_directory = "./resumes"
+persist_directory = "./vector_db"
+collection_name = "resumes_collection"
 
-# Create an empty DataFrame with columns for file path and content
-df = pd.DataFrame(columns=["file_path", "content"])
+# Initialize the vector database handler
+vector_db_handler = VectorDBHandler(files_directory, persist_directory, collection_name)
 
-# Iterate over all .txt files in the directory
-for file_name in os.listdir(files_directory):
-    if file_name.endswith(".txt"):
-        file_path = os.path.join(files_directory, file_name)
-        
-        # Read the content of the file
-        with open(file_path, "r", encoding="utf-8") as file:
-            content = file.read()
-        
-        # Add the file path and content to the DataFrame
-        df = df._append({"file_path": file_path, "content": content}, ignore_index=True)
+# Load or create the vector store database
+vector_db_handler.load_or_create_db()
 
-# define the embedding model and generating the vector db.
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-embedding_model = OpenAIEmbeddings(
-            model="text-embedding-3-large",
-            dimensions=512,
-        )
-
-vectors = embedding_model.embed_documents(df.content.to_list())
-df['embeddings'] = vectors
-df.to_csv("knowledge_base.csv", index = False)
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Define the query for the search
+query = "I am looking for a person with communication skills. who knows kubernetes."
+try:
+    docs = vector_db_handler.query_vector_store(query)
+    
+    # Output the top result
+    if docs:
+        print("Top matching document:")
+        print(docs[0].page_content)
+    else:
+        print("No matching documents found.")
+except ValueError as e:
+    print(f"Error: {e}")

@@ -9,7 +9,7 @@
     to detail.
 
     Technical Skills:
-    - SQL, C++, MongoDB, PostgreSQL, TypeScript, Kubernetes
+    - SQL, C++, MongoDB, PostgreSQL, TypeScript, Kubernetes, openai
 
     Soft Skills:
     - Dependability, Empathy, Time Management, Collaboration
